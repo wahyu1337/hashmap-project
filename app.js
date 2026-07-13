@@ -10,8 +10,9 @@ const test = new HashMap();
 // hasing set() test
 test.set("Carlos", "I'm the old value");
 test.set("Carlos", "I'm the new value");
-console.log(test.set("Rama", "I am the old value"));
-console.log(test.set("Sita", "I am the new value"));
-console.log(test.set("Mara", "Data 3"));
+test.set("Rama", "I am the old value");
+test.set("Sita", "I am the new value");
+test.set("Mara", "Data 3");
+test.set("Mara", "Data 3 (TIMPA)");
 test.set("Sara", "I am the new value");
 test.checkBuckets();

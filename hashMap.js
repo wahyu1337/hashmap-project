@@ -31,12 +31,18 @@ export default class HashMap {
         // append the data
         data.append(key, value);
 
+
         // check if the bucket is empty
         if (currentData[hashKey] === undefined) {
             currentData[hashKey] = data;
-        } else {
+        }
+
+        // if there is a data in bucket
+        // check if  its a same key and same hash & update directly
+        if (currentData[hashKey].updateKey(key, value) === false) {
+            // add different key and same hash
             currentData[hashKey].append(key, value);
-        };
+        }
 
 
         return hashKey;

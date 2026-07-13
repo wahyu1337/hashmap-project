@@ -32,7 +32,18 @@ export default class LinkedList {
     // if the key it's same
     updateKey(key, value) {
         let temp = this.head;
-    }
+
+        // check if key it's same than key in buckets
+        while (temp) {
+            if (key === temp.key) {
+                temp.value = value;
+                return true;
+            } else {
+                temp = temp.next;
+            }
+        }
+        return false;
+    };
 };
 
 export { Node };
