@@ -11,11 +11,28 @@ export default class LinkedList {
         this.head = null
     }
 
+    // add new data
     append(key, value) {
-        let data = new Node(key, value);
+        const data = new Node(key, value);
 
-        this.head = data;
+        // if there's is empty bucket or data
+        if (this.head === null) {
+            this.head = data;
+            return;
+        }
+
+        // if there is a data already
+        let temp = this.head;
+        while (temp.next) {
+            temp = temp.next;
+        }
+        temp.next = data;
     };
+
+    // if the key it's same
+    updateKey(key, value) {
+        let temp = this.head;
+    }
 };
 
 export { Node };

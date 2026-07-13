@@ -22,25 +22,22 @@ export default class HashMap {
     };
 
     set(key, value) {
-        let data = new LinkedList();
+        const data = new LinkedList();
         // hash the key
         // & get the current buckets
         const hashKey = this.hash(key);
-        let updatedBuckets = this.buckets;
+        let currentData = this.buckets;
 
-        // append the data input into var
+        // append the data
         data.append(key, value);
 
-        // insert the data into current index bucket
-        updatedBuckets[hashKey] = data;
-
         // check if the bucket is empty
-        if (updatedBuckets[hashKey] === undefined) updatedBuckets[hashKey] = data;
+        if (currentData[hashKey] === undefined) {
+            currentData[hashKey] = data;
+        } else {
+            currentData[hashKey].append(key, value);
+        };
 
-        // check if it's same key in buckets
-        if (updatedBuckets[hashKey].key === key) {
-            updatedBuckets[hashKey].value = value;
-        }
 
         return hashKey;
     };
@@ -50,7 +47,7 @@ export default class HashMap {
         let index = 0;
         for (let list of buckets) {
             console.log(`index at ${index}`)
-            console.log(list);
+            console.dir(list, { depth: null });
             console.log('-----------');
             index++;
         }
