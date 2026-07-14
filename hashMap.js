@@ -53,9 +53,9 @@ export default class HashMap {
         const hashKey = this.hash(key);
         let currentBuckets = this.buckets[hashKey];
         let data = new LinkedList();
+        data = currentBuckets;
 
         if (currentBuckets !== undefined) {
-            data = currentBuckets;
             return data.find(key);
         }
         return null;
@@ -64,7 +64,25 @@ export default class HashMap {
     // has() method that return true/false if the key
     // on the hashmap
     has(key) {
-        return this.get(key) !== null;
+        return this.get(key) !== null; // return true or false
+    };
+
+    // remove() method that return true/false if key on hasmap
+    // and remove the entry.
+    remove(key) {
+        // get the buckets & hash key
+        const hashKey = this.hash(key);
+        let currentBuckets = this.buckets[hashKey];
+        let data = currentBuckets;        
+
+        // check it has a key
+        if(this.has(key)) {
+            data.removedEntry(key); 
+            return true;
+        }
+        
+        // return false if no key.
+        return false;
     };
 
     // logs entire buckets

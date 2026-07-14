@@ -34,7 +34,7 @@ export default class LinkedList {
         let temp = this.head;
 
         // check if key it's same than key in buckets
-        while (temp) {
+        while(temp) {
             if (key === temp.key) {
                 temp.value = value;
                 return true;
@@ -56,6 +56,27 @@ export default class LinkedList {
                 temp = temp.next;
             }
         } return null;
+    };
+    
+    removedEntry(key) {
+        let temp = this.head;
+
+        // if node it's a head
+        if (temp !== null && temp.key === key) {
+            this.head = temp.next;
+            return true;
+        }
+
+        // node in the middle or tail
+        let previous = null;
+        while (temp !== null) {
+            if (key === temp.key) {
+                previous.next = temp.next;
+                return true;
+            }
+            previous = temp;
+            temp = temp.next;
+        } return false; //if no key match
     };
 };
 

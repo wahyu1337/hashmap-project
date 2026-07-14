@@ -28,3 +28,9 @@ logs("Key: None, Value: " + test.get("None"));
 logs(test.has("Carlos"));
 logs(test.has("Sara"));
 logs(test.has("Ways"));
+
+// hashmap remove() method test
+logs("------------REMOVE() Method------------")
+logs(test.remove("Ways"));
+logs(test.remove("Sita"));
+test.checkBuckets();
