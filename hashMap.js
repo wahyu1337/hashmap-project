@@ -50,7 +50,7 @@ export default class HashMap {
     // get () method return a value from  given key
     get(key) {
         // get the current buckets        
-        let hashKey = this.hash(key);
+        const hashKey = this.hash(key);
         let currentBuckets = this.buckets[hashKey];
         let data = new LinkedList();
 
@@ -60,6 +60,7 @@ export default class HashMap {
         }
         return null;
     };
+
 
     // logs entire buckets
     checkBuckets() {
