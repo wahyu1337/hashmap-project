@@ -48,15 +48,14 @@ export default class LinkedList {
     // return a value from key
     find(key) {
         let temp = this.head;
-
+        // travel to node
         while (temp) {
             if (key === temp.key) {
                 return temp.value;
             } else {
                 temp = temp.next;
             }
-        }
-        return null;
+        } return null;
     };
 };
 

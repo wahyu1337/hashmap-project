@@ -8,7 +8,7 @@ const test = new HashMap();
 // console.log(test.hash("yaWs"));
 // console.log(test.hash("var"));
 
-// hashing set() method test
+// hashmap set() method test
 test.set("Carlos", "I'm the old value");
 test.set("Carlos", "I'm the new value");
 test.set("Rama", "I am the old value");
@@ -23,3 +23,8 @@ logs("Key: Sita, Value: " + test.get("Sita"));
 logs("Key: Mara, Value: " + test.get("Mara"));
 logs("Key: Carlos, Value: " + test.get("Carlos"));
 logs("Key: None, Value: " + test.get("None"));
+
+// hashmap has() method test
+logs(test.has("Carlos"));
+logs(test.has("Sara"));
+logs(test.has("Ways"));

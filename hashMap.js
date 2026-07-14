@@ -61,6 +61,11 @@ export default class HashMap {
         return null;
     };
 
+    // has() method that return true/false if the key
+    // on the hashmap
+    has(key) {
+        return this.get(key) !== null;
+    };
 
     // logs entire buckets
     checkBuckets() {
