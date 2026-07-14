@@ -45,8 +45,6 @@ export default class HashMap {
             // add if it's different key and same hash
             currentBuckets[hashKey].append(key, value);
         }
-
-        return hashKey;
     };
 
     // get () method return a value from  given key
