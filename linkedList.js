@@ -51,11 +51,12 @@ export default class LinkedList {
 
         while (temp) {
             if (key === temp.key) {
-                return temp = temp.value;
+                return temp.value;
             } else {
                 temp = temp.next;
             }
         }
+        return null;
     };
 };
 

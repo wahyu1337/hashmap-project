@@ -1,4 +1,5 @@
 import HashMap from "./hashMap.js";
+import logs from "./logs.js";
 
 const test = new HashMap();
 
@@ -18,6 +19,7 @@ test.set("Sara", "I am the new value");
 test.checkBuckets();
 
 // hashmap get() method test
-test.get("Sita")
-test.get("Mara");
-test.get("None");
+logs("Key: Sita, Value: " + test.get("Sita"));
+logs("Key: Mara, Value: " + test.get("Mara"));
+logs("Key: Carlos, Value: " + test.get("Carlos"));
+logs("Key: None, Value: " + test.get("None"));

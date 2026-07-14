@@ -56,12 +56,12 @@ export default class HashMap {
 
         if (currentBuckets !== undefined) {
             data = currentBuckets;
-            logs(`key: ${key}, value: ` + data.find(key));
-            return;
+            return data.find(key);
         }
-        return logs(null);
+        return null;
     };
 
+    // logs entire buckets
     checkBuckets() {
         const buckets = this.buckets;
         let index = 0;
