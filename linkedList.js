@@ -44,6 +44,19 @@ export default class LinkedList {
         }
         return false;
     };
+
+    // return a value from key
+    find(key) {
+        let temp = this.head;
+
+        while (temp) {
+            if (key === temp.key) {
+                return temp = temp.value;
+            } else {
+                temp = temp.next;
+            }
+        }
+    };
 };
 
 export { Node };

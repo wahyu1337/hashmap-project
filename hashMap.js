@@ -1,4 +1,5 @@
 import LinkedList from "./linkedList.js";
+import logs from "./logs.js";
 
 export default class HashMap {
     // load factor
@@ -22,40 +23,55 @@ export default class HashMap {
     };
 
     set(key, value) {
+        // set linked list node
         const data = new LinkedList();
         // hash the key
         // & get the current buckets
         const hashKey = this.hash(key);
-        let currentData = this.buckets;
+        let currentBuckets = this.buckets;
 
         // append the data
         data.append(key, value);
 
 
         // check if the bucket is empty
-        if (currentData[hashKey] === undefined) {
-            currentData[hashKey] = data;
+        if (currentBuckets[hashKey] === undefined) {
+            currentBuckets[hashKey] = data;
         }
 
         // if there is a data in bucket
         // check if  its a same key and same hash & update directly
-        if (currentData[hashKey].updateKey(key, value) === false) {
-            // add different key and same hash
-            currentData[hashKey].append(key, value);
+        if (currentBuckets[hashKey].updateKey(key, value) === false) {
+            // add if it's different key and same hash
+            currentBuckets[hashKey].append(key, value);
         }
 
-
         return hashKey;
+    };
+
+    // get () method return a value from  given key
+    get(key) {
+        // get the current buckets        
+        let hashKey = this.hash(key);
+        let currentBuckets = this.buckets[hashKey];
+        let data = new LinkedList();
+
+        if (currentBuckets !== undefined) {
+            data = currentBuckets;
+            logs(`key: ${key}, value: ` + data.find(key));
+            return;
+        }
+        return logs(null);
     };
 
     checkBuckets() {
         const buckets = this.buckets;
         let index = 0;
         for (let list of buckets) {
-            console.log(`index at ${index}`)
+            logs(`index at ${index}`)
             console.dir(list, { depth: null });
-            console.log('-----------');
+            logs('-----------');
             index++;
         }
-    }
+    };
 };
