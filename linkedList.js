@@ -79,5 +79,3 @@ export default class LinkedList {
         } return false; //if no key match
     };
 };
-
-export { Node };
