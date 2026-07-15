@@ -51,12 +51,10 @@ export default class HashMap {
     get(key) {
         // get the current buckets        
         const hashKey = this.hash(key);
-        let currentBuckets = this.buckets[hashKey];
-        let data = new LinkedList();
-        data = currentBuckets;
+        let currentBuckets = this.buckets[hashKey];        
 
         if (currentBuckets !== undefined) {
-            return data.find(key);
+            return currentBuckets.find(key);
         }
         return null;
     };
@@ -72,12 +70,11 @@ export default class HashMap {
     remove(key) {
         // get the buckets & hash key
         const hashKey = this.hash(key);
-        let currentBuckets = this.buckets[hashKey];
-        let data = currentBuckets;        
+        let currentBuckets = this.buckets[hashKey];        
 
         // check it has a key
         if(this.has(key)) {
-            data.removedEntry(key); 
+            currentBuckets.removedEntry(key); 
             return true;
         }
         
