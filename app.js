@@ -37,3 +37,9 @@ test.checkBuckets();
 
 // hashmap length() method
 logs("Total key stored: " + test.length());
+test.checkBuckets();
+
+// clear() method
+logs("-------------------------- CLEARING ENTRIES --------------------------");
+test.clear();
+test.checkBuckets();

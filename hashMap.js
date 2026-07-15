@@ -94,6 +94,15 @@ export default class HashMap {
         } return counter;
     };
 
+    // clear () remove all the entries in hashmap
+    clear() {
+        for(let i = 0; i < this.buckets.length; i++){
+            if(this.buckets[i] !== undefined){
+                this.buckets[i] = undefined;
+            }
+        }
+    }
+
     // logs entire buckets
     checkBuckets() {
         const buckets = this.buckets;
