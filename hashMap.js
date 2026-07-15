@@ -85,6 +85,18 @@ export default class HashMap {
         return false;
     };
 
+    // length() return number of stored key
+    length() {        
+        let keyStored = 0;
+
+        for (let i = 0; i < this.buckets.length; i++) {
+            // if there is a node, increment the keyStored
+            if (this.buckets[i] !== undefined) {
+                keyStored++;                       
+            }
+        } return keyStored;
+    };
+
     // logs entire buckets
     checkBuckets() {
         const buckets = this.buckets;
