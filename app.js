@@ -34,3 +34,6 @@ logs("------------REMOVE() Method------------")
 logs(test.remove("Ways"));
 logs(test.remove("Sita"));
 test.checkBuckets();
+
+// hashmap length() method
+logs("Total key stored: " + test.length());

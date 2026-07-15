@@ -57,7 +57,8 @@ export default class LinkedList {
             }
         } return null;
     };
-    
+
+    // removed the given input key in stored value
     removedEntry(key) {
         let temp = this.head;
 
@@ -77,5 +78,18 @@ export default class LinkedList {
             previous = temp;
             temp = temp.next;
         } return false; //if no key match
+    };
+
+    // return the total node data
+    size() {
+        let temp = this.head;
+        let counter = 0;        
+
+        // loop through node and check if its true
+        while (temp) {
+            counter++;
+            temp = temp.next;
+        }        
+        return counter;
     };
 };

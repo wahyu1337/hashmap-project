@@ -86,15 +86,15 @@ export default class HashMap {
     };
 
     // length() return number of stored key
-    length() {        
-        let keyStored = 0;
-
-        for (let i = 0; i < this.buckets.length; i++) {
-            // if there is a node, increment the keyStored
-            if (this.buckets[i] !== undefined) {
-                keyStored++;                       
+    length() {
+        // counter
+        let counter = 0;
+        
+        for (let bucket of this.buckets) {
+            if (bucket !== undefined) {                
+                counter += bucket.size();
             }
-        } return keyStored;
+        } return counter;
     };
 
     // logs entire buckets
