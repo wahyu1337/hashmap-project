@@ -127,6 +127,17 @@ export default class HashMap {
         return value.flat();
     };
 
+    // entries() return an pair array (key, value)
+    entries() {
+        let entry = [];
+
+        for (let bucket of this.buckets) {
+            if(bucket) {
+                entry.push(bucket.getEntries());
+            }
+        } return entry.flat();
+    };
+
     // logs entire buckets
     checkBuckets() {
         const buckets = this.buckets;

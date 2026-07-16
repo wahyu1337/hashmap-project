@@ -44,6 +44,7 @@ logs("Total key stored: " + test.length());
 // test.clear();
 // test.checkBuckets();
 
-// keys() method
+// keys(), values(), entries() method
 logs(test.keys());
 logs(test.values());
+logs(test.entries());

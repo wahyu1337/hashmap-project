@@ -116,4 +116,16 @@ export default class LinkedList {
         }
         return values;
     };
+
+    // getEntries() method return a key & value
+    getEntries() {
+        let temp = this.head;        
+        let entry = [];
+
+        while (temp){
+            entry.push([temp.key, temp.value]);
+            temp = temp.next;
+        }
+        return entry;
+    };
 };
