@@ -96,12 +96,12 @@ export default class LinkedList {
     // getKeys() return keys value
     getKeys() {
         let temp = this.head;
-        let keys =[];
+        let key =[];    
 
         while(temp) {
-            keys.push(temp.key);
+            key.push(temp.key);
             temp = temp.next;
         }
-        return keys;
+        return key;
     };
 };

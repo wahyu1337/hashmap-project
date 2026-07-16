@@ -105,14 +105,14 @@ export default class HashMap {
 
     // key() method that retrieve all the key in the hashmap
     keys() {        
-        let key = [];
+        let key = [];        
         
         for (let bucket of this.buckets){
-            if (bucket !== undefined) {
+            if(bucket) {
                 key.push(bucket.getKeys());
             }
         }
-        return key;
+        return key.flat();
     };
 
     // logs entire buckets
