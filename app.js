@@ -36,10 +36,13 @@ logs(test.remove("Sita"));
 test.checkBuckets();
 
 // hashmap length() method
-logs("Total key stored: " + test.length());
 test.checkBuckets();
+logs("Total key stored: " + test.length());
 
 // clear() method
-logs("-------------------------- CLEARING ENTRIES --------------------------");
-test.clear();
-test.checkBuckets();
+// logs("-------------------------- CLEARING ENTRIES --------------------------");
+// test.clear();
+// test.checkBuckets();
+
+// keys() method
+logs(test.keys());

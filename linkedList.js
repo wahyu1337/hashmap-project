@@ -92,4 +92,16 @@ export default class LinkedList {
         }        
         return counter;
     };
+
+    // getKeys() return keys value
+    getKeys() {
+        let temp = this.head;
+        let keys =[];
+
+        while(temp) {
+            keys.push(temp.key);
+            temp = temp.next;
+        }
+        return keys;
+    };
 };

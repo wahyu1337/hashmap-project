@@ -101,7 +101,19 @@ export default class HashMap {
                 this.buckets[i] = undefined;
             }
         }
-    }
+    };
+
+    // key() method that retrieve all the key in the hashmap
+    keys() {        
+        let key = [];
+        
+        for (let bucket of this.buckets){
+            if (bucket !== undefined) {
+                key.push(bucket.getKeys());
+            }
+        }
+        return key;
+    };
 
     // logs entire buckets
     checkBuckets() {
@@ -113,5 +125,5 @@ export default class HashMap {
             logs('-----------');
             index++;
         }
-    };
+    };    
 };
