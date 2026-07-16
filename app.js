@@ -46,3 +46,4 @@ logs("Total key stored: " + test.length());
 
 // keys() method
 logs(test.keys());
+logs(test.values());

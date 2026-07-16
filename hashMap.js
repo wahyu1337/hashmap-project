@@ -115,6 +115,18 @@ export default class HashMap {
         return key.flat();
     };
 
+    // value() method that retrieve all the value in the hashmap
+    values() {
+        let value = [];
+
+        for (let bucket of this.buckets){
+            if (bucket) {
+                value.push(bucket.getValues());
+            }
+        }
+        return value.flat();
+    };
+
     // logs entire buckets
     checkBuckets() {
         const buckets = this.buckets;
