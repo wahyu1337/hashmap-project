@@ -3,10 +3,10 @@ import logs from "./logs.js";
 
 export default class HashMap {
     // load factor
-    loadFactor = 0.75;
     constructor() {
         // buckets & capacity
         this.capacity = 16;
+        this.loadFactor = 0.75;
         this.buckets = new Array(this.capacity);
     };
 
@@ -44,6 +44,14 @@ export default class HashMap {
         if (currentBuckets[hashKey].updateKey(key, value) === false) {
             // add if it's different key and same hash
             currentBuckets[hashKey].append(key, value);
+        }
+
+        // calculate current load factor 
+        let totalEntry = this.length();
+
+        // check if the load factor is bigger than 0.75
+        if(this.loadFactor < (totalEntry / this.capacity)) {
+            this.resize();
         }
     };
 
@@ -136,6 +144,23 @@ export default class HashMap {
                 entry.push(bucket.getEntries());
             }
         } return entry.flat();
+    };
+    
+    // resize or growth the buckets if overloaded > 0.75
+    resize() {
+        // save all the entries
+        const currentEntries = this.entries();        
+
+        // update capacity
+        this.capacity = this.capacity * 2;
+
+        // reset the array/bucket
+        this.buckets = new Array(this.capacity);
+
+        // re-hash everythng
+        for (let entry of currentEntries){
+            this.set(entry[0], entry[1]);
+        }
     };
 
     // logs entire buckets
