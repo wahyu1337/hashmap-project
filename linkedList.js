@@ -12,7 +12,7 @@ export default class LinkedList {
     }
 
     // add new data
-    append(key, value) {
+    append(key, value = null) {
         const data = new Node(key, value);
 
         // if there's is empty bucket or data
