@@ -1,42 +1,52 @@
-import LinkedList from "./linkedList.js";
+import HashMap from "./hashMap.js";
 
-class hashSet {
+// hashSet class with DRY (Don't Repeat Yourself)
+
+export default class HashSet {
     // constructor
     constructor() {
-        this.loadFactor = 0.75;
-        this.capacity = 16;
-        this.buckets = new Array(this.capacity);
+        // wrap hashmap as an machine
+        this.map = new HashMap();
     };
 
-    // hash() method that return hashing from given string
-    hash(key) {
-        // hashcode & prime number
-        let hashCode = 0;
-        const primeNUmber = 31;
+    // add() a new key
+    add(key) {
+        this.map.set(key, true);
+    };
 
-        // loop
-        for(let i = 0; i < key.length; i++){
-            hashCode = primeNUmber * hashCode + key.charCodeAt(i);
+    // has() return true/false if it's contain
+    has(key) {
+        return this.map.get(key) !== null;
+    };
+
+    // remove() a spesific key
+    remove(key) {
+        this.map.remove(key);
+    };
+
+    // return() total key stored
+    length() {
+        const bucket = this.map.buckets;
+        let counter = 0;
+        for (let key of bucket) {
+            if (key !== undefined) {
+                counter += key.size();
+            }
         }
-
-        // return the hashCode
-        return hashCode;
+        return counter;
     };
-    
-    // set() method that return the key into buckets/array
-    set(key) {
-        // create the data
-        const data = new LinkedList();
-        // hash the key & buckets
-        const hashKey = this.hash(key);
-        let bucket = this.buckets;
 
-        // add the data into current value
-        data.append(key);
+    // clear()
 
-        // if the bucket it's empty
-        if(bucket[hashKey] === undefined) {
-            bucket[hashKey] = data;
+    checkSet() {
+        const bucket = this.map.buckets;
+        let index = 0;
+
+        for (let list of bucket) {
+            console.log(`Index at ${index}`);
+            console.dir(list, { depth: null });
+            console.log("--------------------");
+            index++;
         }
-    };
+    }
 };

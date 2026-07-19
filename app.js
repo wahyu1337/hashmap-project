@@ -1,7 +1,9 @@
 import HashMap from "./hashMap.js";
 import logs from "./logs.js";
+import HashSet from "./hashSet.js";
 
 const test = new HashMap();
+const data = new HashSet();
 
 test.set('apple', 'red');
 test.set('banana', 'yellow');
@@ -15,7 +17,12 @@ test.set('ice cream', 'white');
 test.set('jacket', 'blue');
 test.set('kite', 'pink');
 test.set('lion', 'golden');
-
-logs(test.entries());
 test.set('moon', 'silver');
-test.checkBuckets();
+
+data.add("Carlos");
+data.add("Apple");
+data.add("dog");
+data.checkSet();
+logs(data.has("Ways"));
+logs(data.has("Carlos"));
+logs(data.length());
