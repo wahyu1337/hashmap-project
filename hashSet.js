@@ -36,7 +36,15 @@ export default class HashSet {
         return counter;
     };
 
-
+    // clear(), remove all the current key
+    clear() {
+        // loop all the node and remove them
+        for (let i = 0; i < this.map.buckets.length; i++) {
+            if (this.map.buckets[i] !== undefined) {
+                this.map.buckets[i] = undefined;
+            }
+        }
+    };
 
     // checkKey() logs all the key and buckets
     checkKey() {
