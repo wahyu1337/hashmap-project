@@ -36,9 +36,10 @@ export default class HashSet {
         return counter;
     };
 
-    // clear()
 
-    checkSet() {
+
+    // checkKey() logs all the key and buckets
+    checkKey() {
         const bucket = this.map.buckets;
         let index = 0;
 
