@@ -46,6 +46,18 @@ export default class HashSet {
         }
     };
 
+    // keys() return array that containing all the keys
+    keys() {
+        let key = [];
+
+        for (let bucket of this.map.buckets) {
+            if (bucket) {
+                key.push(bucket.getKeys());
+            }
+        }
+        return key.flat();
+    }
+
     // checkKey() logs all the key and buckets
     checkKey() {
         const bucket = this.map.buckets;

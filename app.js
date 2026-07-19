@@ -26,6 +26,4 @@ data.checkKey();
 logs(data.has("Ways"));
 logs(data.has("Carlos"));
 logs(data.length());
-data.clear();
-logs("----------- RESET -----------");
-data.checkKey();
+logs(data.keys());
